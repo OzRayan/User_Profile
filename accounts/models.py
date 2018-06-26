@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from tinymce.models import HTMLField
 
 
 class UserProfile(models.Model):
@@ -27,7 +26,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     date_of_birth = models.DateField()
-    bio = HTMLField()
+    bio = models.TextField(default='')
     avatar = models.ImageField(upload_to='./user_avatar')
     hobbies = models.CharField(
         max_length=255,

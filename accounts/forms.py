@@ -1,6 +1,5 @@
 from django import forms
 import re
-from tinymce.widgets import TinyMCE
 from django.core.validators import EmailValidator
 
 
@@ -19,7 +18,7 @@ class UserProfileForm(forms.ModelForm):
           - fields --> UserProfile fields + check_email
     """
     check_email = forms.EmailField(max_length=100)
-    bio = forms.CharField(widget=TinyMCE(attrs={'cols': 40, 'rows': 10}))
+    bio = forms.Textarea()
 
     class Meta:
         model = models.UserProfile

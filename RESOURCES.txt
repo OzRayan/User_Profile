@@ -3,3 +3,10 @@
 
 2# Bootstrap v4.1
    https://getbootstrap.com/docs/4.1/getting-started/introduction/
+
+3# TinyMCE4-lite
+   https://fosstack.com/how-to-set-up-tinymce-in-django-app/
+   https://stackoverflow.com/questions/18147659/stackoverflow-like-tag-system-form-for-django
+
+4# Datepicker
+   https://code.jquery.com/
