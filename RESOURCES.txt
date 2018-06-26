@@ -1,0 +1,5 @@
+1# Password.js
+   http://talkerscode.com/webtricks/password-strength-checker-using-jquery-and-css.php
+
+2# Bootstrap v4.1
+   https://getbootstrap.com/docs/4.1/getting-started/introduction/
