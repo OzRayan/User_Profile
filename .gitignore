@@ -7,6 +7,10 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+/extra_credit_image_editor
+.idea
+.idea/workspace.xml
+.tasks.xml
 .Python
 build/
 develop-eggs/
