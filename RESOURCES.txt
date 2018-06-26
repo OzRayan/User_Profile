@@ -6,7 +6,7 @@
 
 3# TinyMCE4-lite
    https://fosstack.com/how-to-set-up-tinymce-in-django-app/
-   https://stackoverflow.com/questions/18147659/stackoverflow-like-tag-system-form-for-django
+   https://stackoverflow.com/
 
 4# Datepicker
    https://code.jquery.com/
