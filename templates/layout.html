@@ -85,16 +85,7 @@
                             <ul class="navbar-nav justify-content-end">
 
                                 <!-- Authentification if block -->
-                                {% if not user.is_authenticated %}
-                                    <li class="nav-item">
-                                        <a class="nav-link font-weight-bold text-light"
-                                           href="{% url 'accounts:sign_up' %}">Sign Up</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link font-weight-bold text-primary"
-                                           href="{% url 'accounts:sign_in' %}">Sign In</a>
-                                    </li>
-                                {% else %}
+                                {% if user.is_authenticated %}
                                     <li class="nav-item">
                                         <a class="nav-link font-weight-bold text-light"
                                            href="{% url 'accounts:user_profile_view' %}">Profile</a>
@@ -106,6 +97,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link font-weight-bold text-primary"
                                            href="{% url 'accounts:sign_out' %}">Sign Out</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link font-weight-bold text-light"
+                                           href="{% url 'accounts:sign_up' %}">Sign Up</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link font-weight-bold text-primary"
+                                           href="{% url 'accounts:sign_in' %}">Sign In</a>
                                     </li>
                                 {% endif %}
                                 <!-- /Authentification if block -->

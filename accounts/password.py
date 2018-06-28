@@ -1,6 +1,3 @@
-# Special characters for password
-
-# Prompt for password help_text attribute
 prompt = [
     'Cannot match the old password',
     'Must be at least 14 characters long',
