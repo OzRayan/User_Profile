@@ -1,0 +1,27 @@
+#mceu_30, #mceu_18, #mceu_17 {
+    margin-left: auto;
+}
+
+.form-row .mce-tinymce {
+    margi-left: auto;
+}
+
+input[type="text"] {
+    border-radius: 5px;
+}
+
+.container {
+    margin-top: auto;
+}
+
+.pos {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}

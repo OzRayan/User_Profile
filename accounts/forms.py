@@ -1,11 +1,11 @@
 from django import forms
 import re
 from django.core.validators import EmailValidator
-from tinymce import TinyMCE
+from tinymce.widgets import TinyMCE
 
 
 from . import models
-from .password import prompt
+
 
 specials = ".\!@#$%^&*?_~-( )"
 
@@ -19,9 +19,7 @@ class UserProfileForm(forms.ModelForm):
           - fields --> UserProfile fields + check_email
     """
     check_email = forms.EmailField(max_length=100)
-    bio = forms.CharField(widget=TinyMCE(
-            attrs={'required': False, 'cols': 30, 'rows': 10}
-        ))
+    bio = forms.CharField(widget=TinyMCE(attrs={'cols': 30, 'rows': 20}))
 
     class Meta:
         model = models.UserProfile
@@ -82,8 +80,7 @@ class ChangePasswordForm(forms.Form):
              - new_password2 --> CharField() with PasswordInput widget and label
     """
     old_password = forms.CharField(widget=forms.PasswordInput())
-    new_password = forms.CharField(help_text=prompt,
-                                   widget=forms.PasswordInput())
+    new_password = forms.CharField(widget=forms.PasswordInput())
     new_password2 = forms.CharField(widget=forms.PasswordInput())
 
     def __init__(self, *args, **kwargs):

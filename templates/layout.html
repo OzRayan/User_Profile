@@ -44,8 +44,6 @@
     <script type="text/javascript"
             src="{% static 'js/autogrow.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
-    <!-- Password meter JS -->
-    <script type="text/javascript" src="{% static 'js/password.js' %}"></script>
     <!-- Datepicker JS -->
     <script
         src="https://code.jquery.com/jquery-2.2.4.js"
@@ -60,6 +58,8 @@
             $("#id_date_of_birth").datepicker();
         });
     </script>
+    <!-- Password meter JS -->
+    <script type="text/javascript" src="{% static 'js/password.js' %}"></script>
 
     <!-- Media block for user profile form -->
     {% block media %}{% endblock %}
@@ -129,7 +129,9 @@
             <ul class="messages centered grid-50">
                 {% for message in messages %}
                     <li class="dot text-center"{% if message.tags %}
-                class="{{ message.tags }}"{% endif %}><span class="text-danger">{{ message }}</span></li>
+                class="{{ message.tags }}"{% endif %}>
+                        {% if message.success %}<span class="text-success">{{ message }}
+                    {% else %}<span class="text-danger">{{ message }}</span>{% endif %}</li>
                 {% endfor %}
             </ul>
         {% endif %}
