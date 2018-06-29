@@ -15,12 +15,15 @@ class ProfileForm(forms.ModelForm):
     :Inherit: - forms.ModelForm
     :fields: - check_email --> EmailField form
              - bio --> CharField form with TinyMCE widget
-             - Profile model fields
     """
     check_email = forms.EmailField(max_length=255)
     bio = forms.CharField(widget=TinyMCE(attrs={"cols": 20, "rows": 10}))
 
     class Meta:
+        """Meta
+        user: - Profile model
+        fields: - Profile model fields + check_email form field
+        """
         user = models.Profile
         fields = [
             'avatar',
@@ -39,4 +42,16 @@ class ProfileForm(forms.ModelForm):
         ]
 
     def clean(self):
-        pass
+        cleaned_data = super().clean()
+        email = cleaned_data.get('email')
+        verify_email = cleaned_data.get('check_email')
+        bio = cleaned_data.get('bio')
+        if email != verify_email:
+            raise forms.ValidationError('Enter the same email address in both fields!')
+        if len(bio) < 10:
+            raise forms.ValidationError('Biography must contain at least 10 letters!')
+        return cleaned_data
+
+
+
+

@@ -9,7 +9,7 @@ from django.contrib.auth.forms import (
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from . import forms
 from . import models
@@ -80,4 +80,26 @@ def sign_out(request):
     logout(request)
     messages.success(request, "You've been signed out. Come back soon!")
     return HttpResponseRedirect(reverse('home'))
+
+
+@login_required
+def detail_view(request):
+    profile_detail = get_object_or_404(models.Profile.objects.all())
+    return render(request, 'accounts/profile_detail.html', {'profile_detail': profile_detail})
+
+
+@login_required
+def edit_view(request):
+    profile_detail = get_object_or_404(models.Profile())
+    form = forms.ProfileForm()
+    if request.method == "POST":
+        form = forms.ProfileForm(instance=profile_detail, data=request.POST)
+        if form.is_valid():
+            new_profile = form.save(commit=False)
+            new_profile.user = request.user
+            new_profile.save()
+            messages.add_message(request, messages.SUCCESS, "Profile saved!")
+            return HttpResponseRedirect('/accounts/profile/detail/')
+
+    return render(request, 'accounts/profile_edit.html', {'form': form})
 

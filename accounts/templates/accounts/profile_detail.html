@@ -10,7 +10,7 @@
     <div class="grid-30">
         <!-- Profile picture -->
         <div class="card pr-auto" style="width: 18rem; hight: 20rem;">
-            <img class="card-img-top" src="{{ user_profile.avatar.url }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ profile_detail.avatar.url }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title text-center text-primary">{{ user.username }}</h5>
                 <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
@@ -29,52 +29,57 @@
             <ul class="list-group list-group-flush h6">
                 <li class="list-group-item">
                     <p class="text-secondary">First Name:
-                      <span class="text-primary ml-5">{{ user_profile.first_name }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.first_name }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Last Name:
-                      <span class="text-primary ml-5">{{ user_profile.last_name }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.last_name }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Date of Birth:
-                      <span class="text-primary ml-5">{{ user_profile.date_of_birth }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.date_of_birth }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">City:
-                      <span class="text-primary ml-5">{{ user_profile.city }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.city }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">State:
-                      <span class="text-primary ml-5">{{ user_profile.state }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.state }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Country:
-                      <span class="text-primary ml-5">{{ user_profile.country }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.country }}</span>
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <p class="text-secondary">ZIP:
+                      <span class="text-primary ml-5">{{ profile_detail.zip }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Email:
-                      <span class="text-primary ml-5">{{ user_profile.email }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.email }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Hobbies:
-                      <span class="text-primary ml-5">{{ user_profile.hobbies }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.hobbies }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Favorite Animal(s):
-                      <span class="text-primary ml-5">{{ user_profile.favorite_animals }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.favorite_animals }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">Biography:
-                      <span class="text-primary ml-5">{{ user_profile.bio|safe }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.bio|safe }}</span>
                     </p>
                 </li>
             </ul>
