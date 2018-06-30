@@ -17,7 +17,7 @@ class Profile(models.Model):
     country = models.CharField(max_length=100)
     zip = models.IntegerField()
     bio = HTMLField('Content')
-    avatar = models.ImageField(upload_to='user_profile_avatar')
+    avatar = models.ImageField(upload_to='./user_profile_avatar')
     hobbies = models.CharField(max_length=255, blank=True)
     favorite_animals = models.CharField(max_length=255, blank=True)
     user = models.OneToOneField(User, related_name='profile')

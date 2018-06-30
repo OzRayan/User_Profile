@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title text-center text-primary">{{ user.username }}</h5>
                 <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
-                    <a href="{% url 'accounts:change_password' %}" class="btn btn-secondary">Change Password</a>
+                    <a href="#" class="btn btn-secondary">Change Password</a>
                     <a href="#" class="btn btn-secondary">Edit Avatar</a>
                 </div>
             </div>
@@ -68,12 +68,12 @@
                     </p>
                 </li>
                 <li class="list-group-item">
-                    <p class="text-secondary">Hobbies:
+                    <p class="text-secondary">Hobb{{ profile_detail.hobbies.count|pluralize:"y, ies" }}:
                       <span class="text-primary ml-5">{{ profile_detail.hobbies }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
-                    <p class="text-secondary">Favorite Animal(s):
+                    <p class="text-secondary">Favorite Animal{{ profile_detail.favorite_animals.count|pluralize }}:
                       <span class="text-primary ml-5">{{ profile_detail.favorite_animals }}</span>
                     </p>
                 </li>

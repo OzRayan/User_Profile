@@ -84,16 +84,22 @@ def sign_out(request):
 
 @login_required
 def detail_view(request):
-    profile_detail = get_object_or_404(models.Profile.objects.all())
+    try:
+        profile_detail = models.Profile.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        profile_detail = None
     return render(request, 'accounts/profile_detail.html', {'profile_detail': profile_detail})
 
 
 @login_required
 def edit_view(request):
-    profile_detail = get_object_or_404(models.Profile())
-    form = forms.ProfileForm()
+    try:
+        profile_detail = models.Profile.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        profile_detail = None
+    form = forms.ProfileForm(instance=profile_detail)
     if request.method == "POST":
-        form = forms.ProfileForm(instance=profile_detail, data=request.POST)
+        form = forms.ProfileForm(request.POST, request.FILES, instance=profile_detail)
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user

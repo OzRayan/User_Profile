@@ -27,7 +27,8 @@
                 <div class="card" style="max-width: 32rem; max-height: 37rem;">
                     <a href="{{ form.instance.avatar.url }}">
                         <img class="card-img-top"
-                            src="{{ form.instance.avatar.url }}" alt="{{ user }}"></a>                   <div class="card-body">
+                            src="{{ form.instance.avatar.url }}" alt="{{ user }}"></a>
+                    <div class="card-body">
                             <h5 class="card-title h4">Avatar</h5>
                         <input class="btn btn-white" name="avatar" type="file">
                     </div>
@@ -70,15 +71,6 @@
                        autocomplete="off">
             </div>
 
-            <div class="col-md-4 mb-2 d-flex justify-content-end">
-                <label class="h4 d-flex justify-content-end"
-                       for="id_date_of_birth">Date of birth</label>
-                <input type="date" class="hasDatepicker mb-4 d-flex justify-content-end"
-                       id="id_date_of_birth"
-                       name="date_of_birth" required
-                       placeholder="Date of birth">
-            </div>
-
         </div>
 
         <div class="form-row d-flex justify-content-between my-3">
@@ -102,6 +94,27 @@
                 <label class="h4 d-flex justify-content-end" for="country">Country</label>
                 <input type="text" class="form-control"
                        id="country" name="country"
+                       placeholder="Required" required>
+            </div>
+
+        </div>
+
+        <div class="form-row d-flex justify-content-between my-3">
+
+
+            <div class="col-md-4 mb-2">
+                <label class="h4 d-flex justify-content-start"
+                       for="id_date_of_birth">Date of birth</label>
+                <input type="date" class="hasDatepicker mb-4 d-flex justify-content-end"
+                       id="id_date_of_birth"
+                       name="date_of_birth" required
+                       placeholder="Date of birth">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label class="h4 d-flex justify-content-end" for="zip">ZIP</label>
+                <input type="text" class="form-control"
+                       id="zip" name="zip"
                        placeholder="Required" required>
             </div>
 
