@@ -10,6 +10,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.cache import never_cache
 
 from . import forms
 from . import models
@@ -93,7 +94,10 @@ def detail_view(request):
 
 @login_required
 def edit_view(request):
-    profile_detail = get_object_or_404(models.Profile)
+    try:
+        profile_detail = models.Profile.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        profile_detail = None
     form = forms.ProfileForm(instance=profile_detail)
     if request.method == "POST":
         form = forms.ProfileForm(request.POST, request.FILES, instance=profile_detail)

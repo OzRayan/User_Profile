@@ -16,7 +16,7 @@ class ProfileForm(forms.ModelForm):
              - bio --> CharField form with TinyMCE widget
     """
     check_email = forms.EmailField()
-    bio = forms.CharField(widget=TinyMCE(attrs={"cols": 20, "rows": 10}))
+    bio = forms.CharField(widget=TinyMCE(attrs={"cols": 30, "rows": 10}))
 
     class Meta:
         model = models.Profile

@@ -1,13 +1,23 @@
-#mceu_30, #mceu_18, #mceu_17 {
-    margin-left: auto;
+.mce-panel .mce-tinymce, .form-row .mce-tinymce  {
+    border: 1px solid #c4d8c7;
+    border-radius: 5px;
 }
 
 .form-row .mce-tinymce {
-    margi-left: auto;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 100%;
 }
 
-input[type="text"] {
+input[type="text"], input[type="date"] {
     border-radius: 5px;
+}
+
+input[type="date"] {
+    border: 1px solid #c4d8c7;
+    font-size: 2.3rem;
+    padding-left: 2rem;
+    height: 5.6rem;
 }
 
 .container {
