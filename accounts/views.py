@@ -93,10 +93,7 @@ def detail_view(request):
 
 @login_required
 def edit_view(request):
-    try:
-        profile_detail = models.Profile.objects.get(user=request.user)
-    except ObjectDoesNotExist:
-        profile_detail = None
+    profile_detail = get_object_or_404(models.Profile)
     form = forms.ProfileForm(instance=profile_detail)
     if request.method == "POST":
         form = forms.ProfileForm(request.POST, request.FILES, instance=profile_detail)

@@ -25,3 +25,7 @@ header {
     top: 0;
     z-index: 1;
 }
+
+.bg-info {
+    background-color: rgba(0, 170, 230, 0.7)!important;
+}

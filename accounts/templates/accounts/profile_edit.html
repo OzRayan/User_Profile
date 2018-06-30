@@ -22,6 +22,7 @@
                        name="first_name"
                        placeholder="Required">
             </div>
+
             <!-- Avatar -->
             <div class="h4 col-md-7 mb-3 d-flex justify-content-end pos">
                 <div class="card" style="max-width: 32rem; max-height: 37rem;">
@@ -107,8 +108,9 @@
                        for="id_date_of_birth">Date of birth</label>
                 <input type="date" class="hasDatepicker mb-4 d-flex justify-content-end"
                        id="id_date_of_birth"
-                       name="date_of_birth" required
-                       placeholder="Date of birth">
+                       required
+                       placeholder="Date of birth"
+                       formaction="{{ form.date_of_birth }}
             </div>
 
             <div class="col-md-4 mb-3">
