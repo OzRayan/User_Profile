@@ -11,15 +11,15 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
-    email = models.EmailField(max_length=255)
+    email = models.EmailField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    zip = models.IntegerField()
+    post_code = models.IntegerField(max_length=8)
     bio = HTMLField('Content')
     avatar = models.ImageField(upload_to='./user_profile_avatar')
     hobbies = models.CharField(max_length=255, blank=True)
     favorite_animals = models.CharField(max_length=255, blank=True)
-    user = models.OneToOneField(User, related_name='profile')
+    user = models.ForeignKey(User, unique=True)
 
 

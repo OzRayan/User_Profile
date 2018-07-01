@@ -43,6 +43,11 @@
                     </p>
                 </li>
                 <li class="list-group-item">
+                    <p class="text-secondary">Email:
+                      <span class="text-primary ml-5">{{ profile_detail.email }}</span>
+                    </p>
+                </li>
+                <li class="list-group-item">
                     <p class="text-secondary">City:
                       <span class="text-primary ml-5">{{ profile_detail.city }}</span>
                     </p>
@@ -59,21 +64,16 @@
                 </li>
                 <li class="list-group-item">
                     <p class="text-secondary">ZIP:
-                      <span class="text-primary ml-5">{{ profile_detail.zip }}</span>
+                      <span class="text-primary ml-5">{{ profile_detail.post_code }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
-                    <p class="text-secondary">Email:
-                      <span class="text-primary ml-5">{{ profile_detail.email }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Hobb{{ profile_detail.hobbies.count|pluralize:"y, ies" }}:
+                    <p class="text-secondary">Hobb{{ profile_detail.hobbies.count|length|pluralize:"y,ies" }}:
                       <span class="text-primary ml-5">{{ profile_detail.hobbies }}</span>
                     </p>
                 </li>
                 <li class="list-group-item">
-                    <p class="text-secondary">Favorite Animal{{ profile_detail.favorite_animals.count|pluralize }}:
+                    <p class="text-secondary">Favorite Animal{{ profile_detail.favorite_animals.count|length|pluralize }}:
                       <span class="text-primary ml-5">{{ profile_detail.favorite_animals }}</span>
                     </p>
                 </li>

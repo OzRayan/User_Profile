@@ -41,25 +41,24 @@
             src="{% static 'js/autogrow.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
     <!-- Datepicker JS -->
-    <!--<script-->
-        <!--src="https://code.jquery.com/jquery-2.2.4.js"-->
-        <!--integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="-->
-        <!--crossorigin="anonymous"></script>-->
-    <!--<script-->
-        <!--src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"-->
-        <!--integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="-->
-        <!--crossorigin="anonymous"></script>-->
-    <!--<script>-->
-        <!--$(document).ready(function() {-->
-            <!--$("#id_date_of_birth").datepicker();-->
-        <!--});-->
-    <!--</script>-->
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#id_date_of_birth").datepicker();
+        });
+    </script>
     <!-- Password meter JS -->
     <script type="text/javascript" src="{% static 'js/password.js' %}"></script>
 
-    <!-- Media block for user profile form -->
+    <!-- Media block for profile_edit -->
     {% block media %}{% endblock %}
-
 
     <!-- Custom CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->

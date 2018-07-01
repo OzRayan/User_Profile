@@ -15,13 +15,12 @@ class ProfileForm(forms.ModelForm):
     :fields: - check_email --> EmailField form
              - bio --> CharField form with TinyMCE widget
     """
-    check_email = forms.EmailField()
+    check_email = forms.EmailField(max_length=100)
     bio = forms.CharField(widget=TinyMCE(attrs={"cols": 30, "rows": 10}))
 
     class Meta:
         model = models.Profile
         fields = [
-            'avatar',
             'first_name',
             'last_name',
             'date_of_birth',
@@ -30,7 +29,8 @@ class ProfileForm(forms.ModelForm):
             'city',
             'state',
             'country',
-            'zip',
+            'avatar',
+            'post_code',
             'hobbies',
             'favorite_animals',
             'bio'
@@ -41,6 +41,7 @@ class ProfileForm(forms.ModelForm):
         email = cleaned_data.get('email')
         verify_email = cleaned_data.get('check_email')
         bio = cleaned_data.get('bio')
+        bio = re.sub('<[^<]+?>', '', bio)
         if email != verify_email:
             raise forms.ValidationError('Enter the same email address in both fields!')
         if len(bio) < 10:

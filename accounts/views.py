@@ -101,6 +101,7 @@ def edit_view(request):
     form = forms.ProfileForm(instance=profile_detail)
     if request.method == "POST":
         form = forms.ProfileForm(request.POST, request.FILES, instance=profile_detail)
+
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user

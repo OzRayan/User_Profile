@@ -39,3 +39,12 @@ header {
 .bg-info {
     background-color: rgba(0, 170, 230, 0.7)!important;
 }
+
+.errorlist {
+    color: red;
+    list-style: none;
+}
+
+.l {
+    list-style: none;
+}
