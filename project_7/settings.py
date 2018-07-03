@@ -145,8 +145,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'toolbar1': '''
             fullscreen preview bold italic underline | fontselect,
             fontsizeselect  | forecolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent | bullist numlist |
-            | | |
+            aligncenter alignjustify | indent outdent | bullist numlist 
             ''',
     'contextmenu': 'formats | link image',
     'menubar': False,

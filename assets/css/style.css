@@ -1,3 +1,13 @@
+/* BACKGROUND */
+body {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* TinyMCE STYLE */
 .mce-panel .mce-tinymce, .form-row .mce-tinymce  {
     border: 1px solid #c4d8c7;
     border-radius: 5px;
@@ -9,8 +19,18 @@
     max-width: 100%;
 }
 
-input[type="text"], input[type="date"] {
+/* INPUT STYLE */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+#mceu_16,
+#mceu_18,
+#mceu_19 {
     border-radius: 5px;
+    border-color: rgba(25, 25, 25, 0.55);
+    background:  rgba(15, 15, 15, 0.75)
 }
 
 input[type="date"] {
@@ -20,16 +40,33 @@ input[type="date"] {
     height: 5.6rem;
 }
 
+#id_first_name,
+#id_last_name,
+#id_email,
+#id_check_email,
+#id_city,
+#id_state,
+#id_country,
+#id_post_code,
+#id_hobbies,
+#id_favorite_animals,
+#id_date_of_birth,
+#id_avatar,
+#id_bio,
+#id_username,
+#id_password,
+#id_password1,
+#id_password2 {
+    color: rgba(200, 200, 200, 1);
+    border-color: rgba(25, 25, 25, 0.55);
+}
+
+/* MAIN CONTAINER */
 .container {
     margin-top: auto;
 }
 
-.pos {
-    position: absolute;
-    top: 1%;
-    right: 1%;
-}
-
+/* HEADER */
 header {
     position: sticky;
     top: 0;
@@ -37,14 +74,59 @@ header {
 }
 
 .bg-info {
-    background-color: rgba(0, 170, 230, 0.7)!important;
+    background-color: rgba(25, 25, 75, 0.72)!important;
 }
 
+/* ERRORS */
 .errorlist {
     color: red;
     list-style: none;
 }
 
-.l {
+/* FORM */
+.lista {
     list-style: none;
+}
+
+.btn {
+    border-radius: 5px;
+    border: 0px solid #007fbb;
+    padding: 1em;
+}
+
+.card,
+.list-group-item,
+.form-control {
+    background-color: rgba(45, 45, 45, 0.35);
+    border-color: rgba(25, 25, 25, 0.55);
+    border-radius: 5px;
+}
+
+.form-control label {
+    color: #007bff;
+}
+
+.dot {
+ list-style: none;
+}
+
+#id_bio {
+    border-color: #007fbb;
+}
+.text-custom {
+    background-color: #007fbb;
+    opacity: 0.7;
+    border-color: #007fbb;
+}
+
+.form-control li #id_username span .help_text,
+.form-control li #id_password2 span .help_text {
+    color: green;
+}
+
+.my_css {
+    letter-spacing: .22rem;
+    color: #bececf;
+    line-height: 1.5;
+    font-weight: 400;
 }

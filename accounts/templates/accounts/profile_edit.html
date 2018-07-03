@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 
-{% block title %}Manage User Profile | {{ block.super }}{% endblock %}
+{% block title %}Edit Profile | {{ block.super }}{% endblock %}
 
 {% block media %}{{ form.media }}{% endblock %}
 
 {% block body %}
 
-<!-- FORM -->
+<!-- PROFILE FORM -->
 <div class="container col-md-10">
-    <form method="POST" class="form l" action="{% url 'accounts:profile_edit' %}" enctype="multipart/form-data">
+    <form method="POST" class="form-control m-1 p-5 lista" action="{% url 'accounts:profile_edit' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_ul }}
-        <input type="submit" class="button-primary" value="Save Profile">
+        <button type="submit" class="btn btn-primary"><h2 class="h3">Save profile</h2></button>
     </form>
 </div>
 

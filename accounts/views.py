@@ -9,8 +9,7 @@ from django.contrib.auth.forms import (
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
-from django.views.decorators.cache import never_cache
+from django.shortcuts import render
 
 from . import forms
 from . import models
@@ -89,7 +88,8 @@ def detail_view(request):
         profile_detail = models.Profile.objects.get(user=request.user)
     except ObjectDoesNotExist:
         profile_detail = None
-    return render(request, 'accounts/profile_detail.html', {'profile_detail': profile_detail})
+    return render(request, 'accounts/profile_detail.html',
+                  {'profile_detail': profile_detail})
 
 
 @login_required
@@ -100,14 +100,36 @@ def edit_view(request):
         profile_detail = None
     form = forms.ProfileForm(instance=profile_detail)
     if request.method == "POST":
-        form = forms.ProfileForm(request.POST, request.FILES, instance=profile_detail)
-
+        form = forms.ProfileForm(request.POST, request.FILES,
+                                 instance=profile_detail)
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user
+
             new_profile.save()
-            messages.add_message(request, messages.SUCCESS, "Profile saved!")
+            messages.success(request, "Profile saved!")
             return HttpResponseRedirect('/accounts/profile/detail/')
 
     return render(request, 'accounts/profile_edit.html', {'form': form})
 
+
+@login_required
+def password_view(request):
+    user = request.user
+    form = forms.PasswordForm(user=user)
+    if request.method == "POST":
+        form = forms.PasswordForm(data=request.POST, user=user)
+        if form.is_valid():
+            if user.check_password(form.cleaned_data.get('old')):
+                user.set_password(form.cleaned_data.get('new'))
+                user.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Password saved!")
+                return HttpResponseRedirect('/accounts/profile/detail/')
+
+            else:
+                messages.error(request, "Old password incorrect.")
+        else:
+            messages.error(request, form.non_field_errors()[0])
+
+    return render(request, 'accounts/password_edit.html', {'form': form})

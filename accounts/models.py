@@ -15,11 +15,11 @@ class Profile(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    post_code = models.IntegerField(max_length=8)
+    post_code = models.IntegerField()
     bio = HTMLField('Content')
     avatar = models.ImageField(upload_to='./user_profile_avatar')
     hobbies = models.CharField(max_length=255, blank=True)
     favorite_animals = models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(User, unique=True)
+    user = models.ForeignKey(User, related_name='profile', unique=True)
 
 

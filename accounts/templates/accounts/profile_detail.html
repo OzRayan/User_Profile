@@ -4,85 +4,99 @@
 
 {% block title %}{{ user.username }}'s Profile | {{ block.super }}{% endblock %}
 
+{% block edit %}
+<nav class="navbar navbar-expand-sm navbar-dark" aria-label="Basic example">
+    <div class="btn-group d-flex justify-content-start" role="group" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="{% url 'accounts:password_edit' %}"
+                   class="nav-link font-weight-bold text-light">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a href="#"
+                   class="nav-link font-weight-bold text-light">Edit Avatar</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
 {% block body %}
 
 <div class="grid-100">
-    <div class="grid-30">
+    <div class="grid-30 d-flex justify-content-between">
         <!-- Profile picture -->
-        <div class="card pr-auto" style="width: 18rem; hight: 20rem;">
+        <div class="card pr-auto" style="width: 30rem; hight: 32rem;">
             <img class="card-img-top" src="{{ profile_detail.avatar.url }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title text-center text-primary">{{ user.username }}</h5>
-                <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
-                    <a href="#" class="btn btn-secondary">Change Password</a>
-                    <a href="#" class="btn btn-secondary">Edit Avatar</a>
-                </div>
             </div>
         </div>
         <!-- /Profile picture -->
     </div>
 
-    <div class="grid-70">
+    <div class="grid-70 d-flex justify-content-end">
 
         <!-- Info -->
-        <div class="card" style="width: 45rem; height: auto;">
-            <ul class="list-group list-group-flush h6">
-                <li class="list-group-item">
-                    <p class="text-secondary">First Name:
-                      <span class="text-primary ml-5">{{ profile_detail.first_name }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Last Name:
-                      <span class="text-primary ml-5">{{ profile_detail.last_name }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Date of Birth:
-                      <span class="text-primary ml-5">{{ profile_detail.date_of_birth }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Email:
-                      <span class="text-primary ml-5">{{ profile_detail.email }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">City:
-                      <span class="text-primary ml-5">{{ profile_detail.city }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">State:
-                      <span class="text-primary ml-5">{{ profile_detail.state }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Country:
-                      <span class="text-primary ml-5">{{ profile_detail.country }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">ZIP:
-                      <span class="text-primary ml-5">{{ profile_detail.post_code }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Hobb{{ profile_detail.hobbies.count|length|pluralize:"y,ies" }}:
-                      <span class="text-primary ml-5">{{ profile_detail.hobbies }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Favorite Animal{{ profile_detail.favorite_animals.count|length|pluralize }}:
-                      <span class="text-primary ml-5">{{ profile_detail.favorite_animals }}</span>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="text-secondary">Biography:
-                      <span class="text-primary ml-5">{{ profile_detail.bio|safe }}</span>
-                    </p>
-                </li>
-            </ul>
+            <div class="card" style="width: 45rem; height: auto;">
+                <ul class="list-group list-group-flush h6">
+                    <li class="list-group-item">
+                        <p class="text-primary justify-content-start">First Name:
+                            <span class="text-white ml-5 justify-content-end">{{ profile_detail.first_name }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Last Name:
+                          <span class="text-white ml-5">{{ profile_detail.last_name }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Date of Birth:
+                          <span class="text-white ml-5">{{ profile_detail.date_of_birth }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Email:
+                          <span class="text-white ml-5">{{ profile_detail.email }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">City:
+                          <span class="text-white ml-5">{{ profile_detail.city }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">State:
+                          <span class="text-white ml-5">{{ profile_detail.state }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Country:
+                          <span class="text-white ml-5">{{ profile_detail.country }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Post code:
+                          <span class="text-white ml-5">{{ profile_detail.post_code }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Hobb{{ profile_detail.hobbies.count|length|pluralize:"y,ies" }}:
+                          <span class="text-white ml-5">{{ profile_detail.hobbies }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="text-primary">Favorite Animal{{ profile_detail.favorite_animals.count|length|pluralize }}:
+                          <span class="text-white ml-5">{{ profile_detail.favorite_animals }}</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-custom">
+                        <p class="text-white">Biography:
+                            <span class="ml-5">{{ profile_detail.bio|safe }}</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- /Info -->
 
