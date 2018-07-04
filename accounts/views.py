@@ -84,6 +84,11 @@ def sign_out(request):
 
 @login_required
 def detail_view(request):
+    """detail_view sends user data if exist else empty data
+    :decorator: - login_required
+    :input: - request
+    :return: - render template(accounts/profile_detail.html) with user data or empty data
+    """
     try:
         profile_detail = models.Profile.objects.get(user=request.user)
     except ObjectDoesNotExist:
@@ -94,6 +99,13 @@ def detail_view(request):
 
 @login_required
 def edit_view(request):
+    """edit_view user profile edit or create if doesn't exist
+        prepares form for validation, saves new data to user else new form
+    :decorator: - login_required
+    :input: - request
+    :returns: - HttpResponseRedirect profile detail
+              - render template(accounts/profile_edit.html) with user data or empty data
+    """
     try:
         profile_detail = models.Profile.objects.get(user=request.user)
     except ObjectDoesNotExist:
@@ -115,6 +127,12 @@ def edit_view(request):
 
 @login_required
 def password_view(request):
+    """password_view prepare user data for form, check password auth
+    :decorator: - login_required
+    :input: - request
+    :returns: - HttpResponseRedirect profile detail
+              - render template(accounts/password_edit.html) with form
+    """
     user = request.user
     form = forms.PasswordForm(user=user)
     if request.method == "POST":
@@ -129,7 +147,5 @@ def password_view(request):
 
             else:
                 messages.error(request, "Old password incorrect.")
-        else:
-            messages.error(request, form.non_field_errors()[0])
 
     return render(request, 'accounts/password_edit.html', {'form': form})

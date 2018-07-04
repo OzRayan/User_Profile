@@ -22,4 +22,3 @@ class Profile(models.Model):
     favorite_animals = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, related_name='profile', unique=True)
 
-

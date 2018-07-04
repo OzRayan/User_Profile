@@ -3,6 +3,8 @@
 {% block title %}Sign In | {{ super }}{% endblock %}
 
 {% block body %}
+
+<!-- SIGN IN FORM -->
 <div class="container col-md-10">
     <form method="POST" class="form-control m-1 p-5 lista" action="{% url 'accounts:sign_in' %}">
         {% csrf_token %}

@@ -52,19 +52,28 @@ class ProfileForm(forms.ModelForm):
 
 
 class PasswordForm(forms.Form):
+    """Password Form
+    :Inherit: - forms.Form
+    :fields: - old - password --> CharField widget PasswordInput
+             - new - password --> CharField widget PasswordInput
+             - check_new - password --> CharField widget PasswordInput
+    """
     old = forms.CharField(widget=forms.PasswordInput())
     new = forms.CharField(widget=forms.PasswordInput())
     check_new = forms.CharField(widget=forms.PasswordInput())
 
     def __init__(self, user=None, *args, **kwargs):
+        """Prepares user data for password validation"""
         self.request = user
         super().__init__(*args, **kwargs)
 
     @staticmethod
     def error(error_message):
+        """Validation error for failing checks"""
         raise forms.ValidationError(error_message)
 
     def clean(self):
+        """Password validation"""
         cleaned_data = super().clean()
         old_pass = cleaned_data.get('old', '')
         new_pass = cleaned_data.get('new', '')
@@ -86,22 +95,19 @@ class PasswordForm(forms.Form):
             print(check_pass)
             self.error('Passwords doesn\'t match!')
 
+        # Checks if user profile name are present in password
         if profile.first_name.lower() in new_pass.lower() or \
                 profile.last_name.lower() in new_pass.lower():
             self.error('Password can\'t contain your first or last name!')
 
+        # Regex use to check alphabet, numeric, upper, lower and special chars in password.
         if not re.findall('[A-Z]', new_pass):
             self.error('Password must contain at least one upper letter!')
         if not re.findall('[a-z]', new_pass):
             self.error('Password must contain at least one lower letter!')
         if not re.findall('\d', new_pass):
             self.error('Password must contain at least one number!')
-        if not re.findall('\W', new_pass):
+        if not re.findall('\W[^_]', new_pass):
             self.error('Password must contain at least one special character (ex: .\!@#$%^&*?_~-)')
 
         return cleaned_data
-
-
-
-
-
