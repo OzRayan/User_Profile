@@ -130,3 +130,12 @@ header {
     line-height: 1.5;
     font-weight: 400;
 }
+
+.position {
+    position: static;
+    right: 1%;
+    bottom: 1%;
+    line-height: 0.3;
+    color: rgba(35, 35, 75, 1);
+    letter-spacing: 0.05rem;
+}
