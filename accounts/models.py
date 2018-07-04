@@ -20,5 +20,5 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='./user_profile_avatar')
     hobbies = models.CharField(max_length=255, blank=True)
     favorite_animals = models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(User, related_name='profile', unique=True)
+    user = models.OneToOneField(User, related_name='profile')
 

@@ -62,9 +62,9 @@ class PasswordForm(forms.Form):
     new = forms.CharField(widget=forms.PasswordInput())
     check_new = forms.CharField(widget=forms.PasswordInput())
 
-    def __init__(self, user=None, *args, **kwargs):
+    def __init__(self, request=None, *args, **kwargs):
         """Prepares user data for password validation"""
-        self.request = user
+        self.request = request
         super().__init__(*args, **kwargs)
 
     @staticmethod
@@ -78,7 +78,7 @@ class PasswordForm(forms.Form):
         old_pass = cleaned_data.get('old', '')
         new_pass = cleaned_data.get('new', '')
         check_pass = cleaned_data.get('check_new', '')
-        profile = self.request.profile
+        profile = self.request.user.profile
 
         if not old_pass:
             self.error('First give the old password!')

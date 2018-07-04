@@ -134,9 +134,9 @@ def password_view(request):
               - render template(accounts/password_edit.html) with form
     """
     user = request.user
-    form = forms.PasswordForm(user=user)
+    form = forms.PasswordForm(request=request)
     if request.method == "POST":
-        form = forms.PasswordForm(data=request.POST, user=user)
+        form = forms.PasswordForm(data=request.POST, request=request)
         if form.is_valid():
             if user.check_password(form.cleaned_data.get('old')):
                 user.set_password(form.cleaned_data.get('new'))

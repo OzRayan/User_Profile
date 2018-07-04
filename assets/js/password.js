@@ -60,8 +60,8 @@ function check_pass() {
 //   document.getElementById("pass_type").innerHTML = "Very Strong";
 //  }
  } else {
-  meter.style.backgroundColor = "white";
-  prompt.style.color = "white";
+  meter.style.backgroundColor = "";
+  prompt.style.color = "";
   document.getElementById("pass_type").innerHTML = "";
  }
 }
