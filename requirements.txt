@@ -1,5 +1,11 @@
+certifi==2018.4.16
 Django==1.9.9
 django-tinymce==2.7.0
+django-tinymce4-lite==1.7.1
+jsmin==2.2.2
 Pillow==5.1.0
+pipenv==2018.6.25
 pytz==2018.4
 reverse==0.1.0
+virtualenv==16.0.0
+virtualenv-clone==0.3.0
