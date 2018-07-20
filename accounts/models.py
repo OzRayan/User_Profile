@@ -10,7 +10,7 @@ class Profile(models.Model):
     """
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(help_text='(MM/DD/YYYY)')
     email = models.EmailField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)

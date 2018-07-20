@@ -86,12 +86,12 @@
                         </p>
                     </li>
                     <li class="list-group-item">
-                        <p class="text-primary">Hobb{{ profile_detail.hobbies.count|length|pluralize:"y,ies" }}:
+                        <p class="text-primary">Hobb{{ profile_detail.hobbies|wordcount|pluralize:"y,ies" }}:
                           <span class="text-white ml-5">{{ profile_detail.hobbies }}</span>
                         </p>
                     </li>
                     <li class="list-group-item">
-                        <p class="text-primary">Favorite Animal{{ profile_detail.favorite_animals.count|length|pluralize }}:
+                        <p class="text-primary">Favorite Animal{{ profile_detail.favorite_animals|wordcount|pluralize }}:
                           <span class="text-white ml-5">{{ profile_detail.favorite_animals }}</span>
                         </p>
                     </li>
