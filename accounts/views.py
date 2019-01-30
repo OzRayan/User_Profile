@@ -111,9 +111,13 @@ def edit_view(request):
     except ObjectDoesNotExist:
         profile_detail = None
     form = forms.ProfileForm(instance=profile_detail)
+    print('------ Request ------')
+    print(form)
     if request.method == "POST":
         form = forms.ProfileForm(request.POST, request.FILES,
                                  instance=profile_detail)
+        print('------ Form ------')
+        print(form)
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user
