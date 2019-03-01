@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath user-profile-p7 project_7.wsgi --log-file -
+web: gunicorn --pythonpath user-profile-p7 project_7.deploy --log-file -
