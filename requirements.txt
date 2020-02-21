@@ -1,14 +1,14 @@
 certifi==2018.4.16
-Django==1.11.18
+Django==2.2.10
 django-tinymce==2.7.0
 django-tinymce4-lite==1.7.1
 gunicorn==19.9.0
 jsmin==2.2.2
-Pillow==5.1.0
-pipenv==2018.6.25
+Pillow==6.2.0
 pytz==2018.4
 reverse==0.1.0
 virtualenv==16.0.0
 virtualenv-clone==0.3.0
 dj-database-url==0.4.1
+pipenv==2018.11.26
 psycopg2==2.6.2
